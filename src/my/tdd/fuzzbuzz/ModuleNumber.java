@@ -2,7 +2,7 @@ package my.tdd.fuzzbuzz;
 
 public abstract class ModuleNumber{
 
-	public abstract String say();
+	public abstract Object say();
 	
 	static ModuleNumber factiory(int number){
 		if (number == 3)

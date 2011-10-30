@@ -15,13 +15,13 @@ public class TestFuzzBuzz {
 	@Test
 	public void sedici(){
 		Number numb = new Number(16);
-		assertEquals(16, numb.say());
+		assertEquals("16", numb.say());
 	}
 	
 	@Test
 	public void uno(){
 		Number numb = new Number(1);
-		assertEquals(1, numb.say());
+		assertEquals("1", numb.say());
 	}
 	
 	@Test

@@ -9,15 +9,21 @@ public class Number {
 	
     private Integer number;
     private Integer appoggio;
-    private List list = new ArrayList();
+    private List<ModuleNumber> list = new ArrayList<ModuleNumber>();
     
 	public Number(int i) {
 		number = i;
 		appoggio = number;
 		decompose(appoggio, 3);
 		decompose(appoggio, 5);
+		decompose(i);
 	}
 	
+	private void decompose(int i) {
+		if (list.isEmpty())
+			list.add(new SimpleNumber(i));
+	}
+
 	private void decompose(Integer appoggio, int modulo) {
 		while((appoggio % modulo) == 0){
 			list.add(ModuleNumber.factiory(modulo));
@@ -27,11 +33,9 @@ public class Number {
 
 	public Object say() {
 		String result = "";
-		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-			ModuleNumber type = (ModuleNumber) iterator.next();
-			result += type.say();	
+		for (ModuleNumber num : list) {
+			result += num.say();
 		}
-		if ("".equals(result))  return number;
 		return result;
 	}
 	
